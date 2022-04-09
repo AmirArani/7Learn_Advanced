@@ -7,6 +7,11 @@ public class Motor extends Khodro {
     }
 
     @Override
+    public boolean AyaDarHalHarekatAst() {
+        return false;
+    }
+
+    @Override
     public String getMark() {
         return "Motor";
     }
