@@ -2,17 +2,24 @@ package khodro;
 
 public class Mashin extends Khodro implements SandoqDar, GearBox{
 
-        public Mashin(){}
-
-        public Mashin(String mark){
+    public Mashin(String mark){
             this.mark = mark;
-        }
+    }
 
-        boolean ayaDarBazAst;
-        String mark;
-        Ranande ranande;
+    boolean ayaDarBazAst;
+    String mark;
+    Ranande ranande;
 
-        void bazKardanDar(){
+    int gonjayeshSandoq;
+    String noeDande;
+
+    public Mashin(String mark, int gonjayeshSandoq, String noeDande) {
+        this.mark = mark;
+        this.gonjayeshSandoq = gonjayeshSandoq;
+        this.noeDande = noeDande;
+    }
+
+    void bazKardanDar(){
             ayaDarBazAst = true;
         }
 
@@ -21,11 +28,7 @@ public class Mashin extends Khodro implements SandoqDar, GearBox{
         }
 
         public boolean ayaDarHalHarekatAst(){
-            if(!ayaDarBazAst && ayaRoshanAst){
-                return true;
-            }else{
-                return false;
-            }
+            return !ayaDarBazAst && ayaRoshanAst;
         }
 
     @Override
@@ -36,5 +39,10 @@ public class Mashin extends Khodro implements SandoqDar, GearBox{
     @Override
     public int gonjayeshSandoq() {
         return 100;
+    }
+
+    @Override
+    public String getMark() {
+        return mark;
     }
 }
