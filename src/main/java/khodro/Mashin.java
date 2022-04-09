@@ -1,6 +1,6 @@
 package khodro;
 
-public class Mashin extends Khodro{
+public class Mashin extends Khodro implements SandoqDar, GearBox{
 
         public Mashin(){}
 
@@ -27,4 +27,14 @@ public class Mashin extends Khodro{
                 return false;
             }
         }
+
+    @Override
+    public String typeDande() {
+        return "Automatic";
+    }
+
+    @Override
+    public int gonjayeshSandoq() {
+        return 100;
+    }
 }
