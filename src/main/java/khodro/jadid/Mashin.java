@@ -7,6 +7,8 @@ import khodro.SandoqDar;
 
 public class Mashin extends Khodro implements SandoqDar, GearBox {
 
+    public static int tedadeForosh;
+
     public Mashin(String mark){
             this.mark = mark;
     }
