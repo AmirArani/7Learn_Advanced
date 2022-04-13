@@ -1,7 +1,5 @@
 package calculator;
 
-import calculator.Calculator;
-
 import javax.swing.*;
 
 public class CalculatorUI {
