@@ -3,13 +3,14 @@ package khodro;
 //Outer class
 public class Ranande {
 
-    private String noeGavahiname = "Paye 1"; //runtime
-    private static String name = "Farhad"; //compile time
+    private static final String name = "Farhad"; //compile time
 
     //Non-static Nested Class -> Inner class
-    public class Gavahiname {
+    public static class Gavahiname {
         public void print(){
             System.out.println("Class Non Static: ");
+            //runtime
+            String noeGavahiname = "Paye 1";
             System.out.println(noeGavahiname);
             System.out.println(name);
         }
