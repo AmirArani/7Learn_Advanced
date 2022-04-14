@@ -10,10 +10,12 @@ public class CalculatorUI {
     private static int op = 0;
     private static boolean isResultShown;
 
+    public static final int SIZE = 100;
+
     public static void main (String[] args){
         calculatorFrame = new JFrame("Calculator");
 
-        calculatorFrame.setSize(250, 300);
+        calculatorFrame.setSize(600, 600);
         calculatorFrame.setLayout(null);
         calculatorFrame.setVisible(true);
 
@@ -22,20 +24,20 @@ public class CalculatorUI {
 
     private static void initUiElements(){
         jTextField = new JTextField();
-        jTextField.setBounds(0,0,150, 50);
+        jTextField.setBounds(0,0,SIZE*3, SIZE);
         jTextField.setEditable(false);
         calculatorFrame.add(jTextField);
 
-        JButton one = getNumButton("1", 0  , 50 );
-        JButton two = getNumButton("2", 50 , 50 );
-        JButton three = getNumButton("3", 100, 50 );
-        JButton four = getNumButton("4", 0  , 100);
-        JButton five = getNumButton("5", 50 , 100);
-        JButton six = getNumButton("6", 100, 100);
-        JButton seven = getNumButton("7", 0  , 150);
-        JButton eight = getNumButton("8", 50 , 150);
-        JButton nine = getNumButton("9", 100, 150);
-        JButton zero = getNumButton("0", 50 , 200);
+        JButton one = getNumButton("1", 0, SIZE);
+        JButton two = getNumButton("2", SIZE, SIZE);
+        JButton three = getNumButton("3", SIZE*2, SIZE);
+        JButton four = getNumButton("4", 0  , SIZE*2);
+        JButton five = getNumButton("5", SIZE , SIZE*2);
+        JButton six = getNumButton("6", SIZE*2, SIZE*2);
+        JButton seven = getNumButton("7", 0  , SIZE*3);
+        JButton eight = getNumButton("8", SIZE , SIZE*3);
+        JButton nine = getNumButton("9", SIZE*2, SIZE*3);
+        JButton zero = getNumButton("0", SIZE , SIZE*4);
         calculatorFrame.add(one);
         calculatorFrame.add(two);
         calculatorFrame.add(three);
@@ -47,10 +49,10 @@ public class CalculatorUI {
         calculatorFrame.add(nine);
         calculatorFrame.add(zero);
 
-        JButton plus = getOpButton("+", 50, 1 );
-        JButton minus = getOpButton("-", 100, 2 );
-        JButton multipe = getOpButton("x", 150, 3 );
-        JButton devision = getOpButton("/", 200, 4 );
+        JButton plus = getOpButton("+", SIZE, 1 );
+        JButton minus = getOpButton("-", SIZE*2, 2 );
+        JButton multipe = getOpButton("x", SIZE*3, 3 );
+        JButton devision = getOpButton("/", SIZE*4, 4 );
         calculatorFrame.add(plus);
         calculatorFrame.add(minus);
         calculatorFrame.add(multipe);
@@ -66,7 +68,7 @@ public class CalculatorUI {
 
     private static JButton getNumButton(String label, int x, int y) {
         JButton button = new JButton(label);
-        button.setBounds(x, y,50,50);
+        button.setBounds(x, y,SIZE,SIZE);
         button.addActionListener(event -> {
             if (isResultShown){
                 jTextField.setText("");
@@ -79,7 +81,7 @@ public class CalculatorUI {
 
     private static JButton getOpButton(String label, int y, int ops){
         JButton button = new JButton(label);
-        button.setBounds(150, y,50,50);
+        button.setBounds(SIZE*3, y,SIZE,SIZE);
         button.addActionListener(e -> {
             lastResult = jTextField.getText();
             jTextField.setText("");
@@ -90,10 +92,10 @@ public class CalculatorUI {
 
     private static JButton initEqualBtn() {
         JButton equal = new JButton("=");
-        equal.setBounds(100, 200,50,50);
+        equal.setBounds(SIZE*2, SIZE*4,SIZE,SIZE);
         equal.addActionListener(e -> {
 
-            Calculator calculator = new Calculator();
+            final Calculator calculator = new Calculator();
             String result = "";
 
             if (!jTextField.getText().isEmpty() && !lastResult.isEmpty()){
@@ -112,7 +114,7 @@ public class CalculatorUI {
     }
     private static JButton initPointsBtn() {
         JButton point = new JButton(".");
-        point.setBounds(0, 200,50,50);
+        point.setBounds(0, SIZE*4,SIZE,SIZE);
         point.addActionListener(e -> {
             if (!jTextField.getText().isEmpty() && !jTextField.getText().contains(".")){
                 jTextField.setText(jTextField.getText()+".");
@@ -122,7 +124,7 @@ public class CalculatorUI {
     }
     private static JButton initCancelBtn() {
         JButton cancel = new JButton("C");
-        cancel.setBounds(150, 0,50,50);
+        cancel.setBounds(SIZE*3, 0,SIZE,SIZE);
         cancel.addActionListener(e -> {
             jTextField.setText("");
             op=0;
